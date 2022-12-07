@@ -1,0 +1,67 @@
+<app-headernav pageType="home"></app-headernav>
+<div class="container-sm searchBarContainer mb-5 mt-5">
+  <div class="left">
+    <p class=" fs-3 fw-bold text-light font-monospace">Search</p>
+    <div class="input-group glass">
+        <input #searchText type="text" class="form-control " aria-label="Text input with dropdown button">
+        <button class="btn searchBtn dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-symbols-outlined">
+            search
+            </span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end glass">
+          <li class="searchOptionList"><a (click)="handleSearch(searchText.value, 'price')" class="dropdown-item d-flex justify-content-end">Price&nbsp;<span class="material-symbols-outlined">
+            chevron_right
+            </span></a></li>
+          <li class="searchOptionList"><a (click)="handleSearch(searchText.value, 'brand')"  class="dropdown-item d-flex justify-content-end">Brand&nbsp;<span class="material-symbols-outlined">
+            chevron_right
+            </span></a></li>
+          <li class="searchOptionList"><a (click)="handleSearch(searchText.value, 'productCode')"  class="dropdown-item d-flex justify-content-end">Product Code&nbsp;<span class="material-symbols-outlined">
+            chevron_right
+            </span></a></li>
+        </ul>
+      </div>
+  </div>
+  <div class="filterContainer">
+    <div class="filterButton border border-info rounded glass" data-bs-toggle="modal" data-bs-target="#filterModal">
+      <span class="material-symbols-outlined">
+        filter_list
+        </span>
+        <span class="fs-5">Filter</span>
+    </div>
+  </div>
+</div>
+<div class="container border-top tableContainer">
+  <div *ngIf="products.length == 0" class="alert alert-warning mt-4 border rounded" role="alert">
+    No Product Exists. Try again.
+  </div>
+    <app-tablecontent [products]='products'></app-tablecontent>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content glass">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container text-center">
+          <div class="headingFilter"><p class="fs-5">Input Price Range</p></div>
+          <div class="inputs">
+            <div class="input-group">
+              <input #filterLNumber type="number" class="form-control" placeholder="Lower bound" aria-label="Username">
+              <span class="input-group-text">-</span>
+              <input #filterUNumber type="number" class="form-control" placeholder="Upper bound" aria-label="Server">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="handleFilterReset()" class="btn btn-warning" data-bs-dismiss="modal">Reset</button>
+        <button type="button" (click)="handlePriceFilter(filterLNumber.value, filterUNumber.value)" class="btn btn-primary" data-bs-dismiss="modal">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>

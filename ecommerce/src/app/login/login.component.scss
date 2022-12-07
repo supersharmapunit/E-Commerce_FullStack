@@ -1,0 +1,12 @@
+.container{
+    // border: 0.5px solid black;
+    margin: 10vh auto;
+    display: flex;
+    justify-content:center;
+    max-width: 30vw;
+    padding: 5rem;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,81 @@
+<!-- <div class="container tableContainer text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Products</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+            <tr>
+                <div class="card" style="width: 20rem;">
+                    <img src={{product.image}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">{{product.brand}}</h6>
+                        <h5 class="card-title">{{product.productName}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span class="price">{{product.price | currency:"INR"}}</span><span class="actual-price">{{(product.price)+(product.price*20)/100 | currency:"INR"}}</span></h6>
+                        <button (click)="handleProductClick(product)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Get Details
+                        </button>
+                    </div>
+                  </div>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content glass">
+        <div class="modal-header">
+          <h5 class="modal-title fs-2" id="exampleModalLabel">{{currProduct?.productName}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="card mb-3 glass" style="width: 100%;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src={{currProduct?.image}} class="img-fluid rounded-start" alt={{currProduct?.productName}}>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-subtitle my-4 fs-5 row"><span class="col-3"><b>Description:</b>&nbsp;</span><span class="col">{{currProduct?.description}}</span></p>
+                        <h5 class="card-title my-3 row"><span class="col-3">Price: &nbsp;</span><span class="price col">{{currProduct?.price | currency:"INR"}}</span></h5>
+                        <h5 class="card-title my-3 row"><span class="col-3">Brand&nbsp;</span><span class="col">{{currProduct?.brand}}</span></h5>
+                        <p class="card-text my-2"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h6 class="card-subtitle my-2 text-muted">Product code: &nbsp;{{currProduct?.productId}}</h6>
+                        <div class="input-group pincodeInput my-3">
+                            <input #pincode type="number" class="form-control" placeholder="Check Availablity enter pincode" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button (click)="handleCheckAvailablity(pincode.value)" class="btn btn-outline-secondary" type="button" id="button-addon2"><span class="material-symbols-rounded">
+                                done
+                                </span></button>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div *ngFor="let product of products">
+        <div class="card h-100 shadow p-3 mb-5 bg-body rounded glass" style="width: 20rem;">
+            <img src={{product.image}} class="card-img-top glass" alt="...">
+            <div class="divider-op"></div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">{{product.brand}}</h6>
+                <h5 class="card-title">{{product.productName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><span class="price">{{product.price | currency:"INR"}}</span><span class="actual-price">{{(product.price)+(product.price*20)/100 | currency:"INR"}}</span></h6>
+                <button (click)="handleProductClick(product)" type="button" class="btn btn-primary description-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Get Details
+                </button>
+            </div>
+          </div>
+    </div>
+  </div>

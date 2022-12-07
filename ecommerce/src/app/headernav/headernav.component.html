@@ -1,0 +1,9 @@
+<div class="navbar">
+    <div class="left-side">
+        <p class="h3">E-Commerce</p>
+        <div class="logo"></div>
+    </div>
+    <div *ngIf="showLogOutButton" class="right-side">
+        <button (click)="handleLogout()" type="button" class="btn btn-outline-danger">Logout</button>
+    </div>
+</div>

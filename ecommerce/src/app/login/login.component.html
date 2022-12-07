@@ -1,0 +1,18 @@
+<app-headernav pageType="authentication"></app-headernav>
+<div class="login-form container shadow-lg p-3 mb-5 bg-body rounded mt-6 glass">
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+        <div class="form-heading text-center mt-3 mb-3"><h3>Login</h3></div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input required formControlName="userEmail" type="email" class="form-control" placeholder="abc@xyz.com" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Password</span>
+            <input required formControlName="userPassword" type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="buttons text-center mb-4 d-flex align-items-center">
+            <a routerLink="/register" class="">Don't have an account? Register</a>
+            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+</div>

@@ -1,0 +1,16 @@
+<app-headernav pageType="searchresult"></app-headernav>
+<div class="container my-3 d-flex flex-row align-items-center justify-content-between headingContainer">
+    <div class="left">
+        <button class="btn btn-warning" routerLink="/home">Go Back</button>
+    </div>
+    <div class="text-center">
+        <p class="fs-1">Search Results</p>
+    </div>
+    <div class="right"></div>
+</div>
+<div class="searchResultContainer container">
+    <app-tablecontent *ngIf="searchedPdts.length > 0" [products]='searchedPdts'></app-tablecontent>
+    <div *ngIf="searchedPdts.length == 0" class="alert alert-danger" role="alert">
+        No Search Results found. Please try somthing else.
+      </div>
+</div>

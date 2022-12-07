@@ -1,0 +1,43 @@
+.searchBarContainer {
+    max-width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    // border: 2px solid black;
+}
+
+.input-group{
+    width: 30vw;
+}
+.filterButton {
+    margin-right: 9vw;
+    margin-top: 6vh;
+    display: flex;
+    align-items: center;
+    padding: 4.5px 19px;
+    color: rgb(66, 66, 66);
+}
+
+.filterButton:hover{
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: rgb(49, 49, 49);
+}
+
+.inputs{
+    margin-left: 15%;
+}
+
+.inputs>*{
+    max-width: 20rem;
+}
+
+.searchOptionList :hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    border-radius: 7px;
+}
+
+.searchBtn :hover{
+    cursor: pointer;
+    transform: scale(1.21);
+}
